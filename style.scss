@@ -1,11 +1,14 @@
 $bigsize: 3em;
 $brightthefuck: #00ff00;
+$paragraphsize:1em;
 
-@mixin flatten($styletype){
-ul{		
-	list-style-type: $styletype;
-	li{
-		display: inline;
+@mixin footer_list{
+	float:left;
+	ul{	
+		float:left;
+		padding-left: 0;	
+		li{
+			display: inline;
 		}
 	}
 
@@ -17,14 +20,17 @@ h1{
 }
 
 body{
-	@include flatten(square);
+		font-size: $paragraphsize;
+
 }
 
 #footer{
-	
 	color: $brightthefuck;
-	ul{
-		font-size: 0.5em;
-		@include flatten(none);
+	@include footer_list;
+}
+
+li{
+	&:hover{
+		font-size: $paragraphsize*1.5
 	}
 }
